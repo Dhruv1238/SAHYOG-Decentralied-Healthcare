@@ -6,6 +6,7 @@ import { Button } from '@material-tailwind/react';
 import { FaChevronRight } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { useFormContext } from '../context/FormProvider';
+import SahyogCard from '../components/Sahyogcard/SahyogCard';
 
 const DetailButton = ({ text, onClick }) => {
     const { form1, updateFormData } = useFormContext();
@@ -26,6 +27,7 @@ const DetailsPage = () => {
     })
     const navigate = useNavigate();
     return (
+        <>
         <div className='flex flex-col gap-24 my-10 mx-7'>
             <motion.div className='flex flex-col gap-2'
                 initial={{ opacity: 0 }}
@@ -41,6 +43,8 @@ const DetailsPage = () => {
                 <DetailButton text='Health Insurance Details' onClick={() => navigate('/healthinsurance')} />
             </div>
         </div>
+        <SahyogCard />
+        </>
     )
 }
 
