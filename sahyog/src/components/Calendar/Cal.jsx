@@ -3,6 +3,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './Cal.css';
 import Welcom from './Welcom';
+import Notes from './Notes';
 
 const Cal = () => {
   const [date, setDate] = useState(new Date());
@@ -111,7 +112,7 @@ const Cal = () => {
         )}
 
       </div>
-
+                  <Notes />
     </>
   );
 };
