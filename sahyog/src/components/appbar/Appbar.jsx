@@ -35,9 +35,8 @@ const Appbar = () => {
            {/* <GoHomeFill /> */}
 
           <GoHomeFill
-            className='color-[#002434]'
+            className='color-[#002434] w-6 h-6'
             style={getItemStyles('home')}
-            className='w-6 h-6'
           />
           <Typography
             color='white'
