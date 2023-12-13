@@ -12,7 +12,8 @@ import BasicInfo from './pages/BasicInfo';
 import Login from './context/AuthContext';
 import Cal from './components/Calendar/Cal';
 import Notes from './components/Calendar/Notes';
-import Landing from './pages/Landing';
+import Landing from './pages/landing/Landing';
+import Specialist from './pages/landing/specialist.jsx/Specialist';
 
 export const Router = () => {
 
@@ -30,6 +31,8 @@ export const Router = () => {
             <Route path="/calendar" element={<Cal />} />
             <Route path="/notes/:date/:title/:text" element={<Notes />} />
             <Route path="/landing" element={<Landing />} />
+            <Route path="*" element={<h1>Not Found</h1>} />
+            <Route path="/specialist/:name/:degree" element={<Specialist />} />
         </Routes>
     )
 }

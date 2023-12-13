@@ -4,12 +4,14 @@ import { FaSearch, FaUserCircle } from 'react-icons/fa';
 import { CiBellOn } from 'react-icons/ci';
 import { BsStars } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
-import banner from '../assets/landing_banner.png';
-import portrait from '../assets/portrait.jpg';
-import Appbar from '../components/appbar/Appbar';
-const PersonCard = ({ photoSrc, name, degree }) => {
+import banner from '../../assets/landing_banner.png';
+import portrait from '../../assets/portrait.jpg';
+import Appbar from '../../components/appbar/Appbar';
+
+const PersonCard = ({ photoSrc, name, degree, clickFunc }) => {
     return (
-        <div className="flex flex-col items-center">
+
+        <div className="flex flex-col items-center" onClick={() => clickFunc(name, degree, photoSrc)}>
             <div className="w-20 h-20 overflow-hidden border-2 border-blue-100 rounded-full">
                 <img src={photoSrc} alt="Person Photo" className="object-cover w-full h-full" />
             </div>
@@ -21,8 +23,21 @@ const PersonCard = ({ photoSrc, name, degree }) => {
     );
 };
 
+
+
+
 const Landing = () => {
+
+    // const navigate = useNavigate();
     const navigate = useNavigate();
+    
+    
+    const clickhandler = (name, degree, photoSrc) => {
+            navigate(`/specialist/${name}/${degree}`, { state: { photoSrc } });
+        };    
+
+
+  
 
     return (
         <>
@@ -86,16 +101,16 @@ const Landing = () => {
                 <div className='flex flex-col gap-5'>
                     <Typography color='white' className='text-3xl font-bold font-inter'>Talk to a Specialist</Typography>
                     <div className='flex items-center gap-5 jusitfy-center'>
-                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} />
-                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} />
-                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} />
-                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} />
+                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc = {clickhandler} />
+                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc = {clickhandler}/>
+                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc = {clickhandler}/>
+                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc = {clickhandler}/>
                     </div>
                     <div className='flex items-center gap-5 jusitfy-center'>
-                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} />
-                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} />
-                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} />
-                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} />
+                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc = {clickhandler}/>
+                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc = {clickhandler}/>
+                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc = {clickhandler}/>
+                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc = {clickhandler}/>
                     </div>
                 </div>
                 <div className='flex flex-col'>
