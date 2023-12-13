@@ -1,5 +1,5 @@
 import './App.css'
-import { Router } from './Router'
+import Router from './Router'
 import { BrowserRouter } from 'react-router-dom'
 import { ProvideAuth } from "@arcana/auth-react";
 import { AuthProvider, CHAIN } from "@arcana/auth";

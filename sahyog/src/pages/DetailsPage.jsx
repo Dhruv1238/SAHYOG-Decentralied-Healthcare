@@ -10,7 +10,7 @@ import { useFormContext } from '../context/FormProvider';
 const DetailButton = ({ text, onClick, color }) => {
     const { form1, updateFormData } = useFormContext();
     return (
-        <Button variant="outlined" color='white' className={`flex items-center justify-between rounded-[20px] w-full gap-3 text-md font-bold ${!color ? "bg-blue-500" : "bg-green-500"} font-inter`} onClick={onClick}>
+        <Button variant="outlined" color='white' className={`flex items-center justify-between rounded-[20px] w-full gap-3 text-md font-bold ${color ? "bg-green-500" : "bg-blue-500"} font-inter`} onClick={onClick}>
             {text}
             <FaChevronRight />
         </Button>

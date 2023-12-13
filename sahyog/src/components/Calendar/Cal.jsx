@@ -6,7 +6,6 @@ import { Button } from '@material-tailwind/react';
 import { Typography } from '@material-tailwind/react';
 import { motion } from 'framer-motion';
 // import Welcom from './Welcom';
-import Notes from './Notes';
 import { useNavigate } from 'react-router-dom';
 import Appbar from '../appbar/Appbar';
 const Cal = () => {
