@@ -5,9 +5,6 @@ import { CiBellOn } from "react-icons/ci";
 import { CiMenuBurger } from "react-icons/ci";
 
 
-
-
-
 const Navbar = () => {
 
 
@@ -18,7 +15,7 @@ const clickHandler = () => {
 }
 
   return (
-    <div className='flex justify-between'>
+    <div className='flex justify-between absolute w-screen'>
         <div className='left flex mt-6 ml-4'>
                 <div className='pfp '>
                         <img src={userIcon} alt="" className='w-[54px] h-[54px]'  />
