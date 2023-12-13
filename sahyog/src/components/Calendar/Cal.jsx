@@ -56,7 +56,7 @@ const Cal = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Typography color='blue' className='font-inter'>Welcome to the Safe Zone!!</Typography>
+          <Typography color='blue' className='font-inter text-xl font-medium'>Welcome to the Safe Zone!!</Typography>
           <Typography color='white' className='text-3xl font-bold font-inter'>Write to your Hearts Content</Typography>
         </motion.div>
         <div>
@@ -105,13 +105,13 @@ const Cal = () => {
                   <li id='event' className='pt-4' key={index}>
                     <div className='flex text-black bg-white rounded-lg w-80' id='td' onClick={() => navigate(`/notes/${event.date}/${event.title}/${event.text}`)}>
                       <div className='w-1/4 p-2 text-white bg-cyan-600' id='edate'>
-                        {event.date}
+                        <p className='font-normal pt-1' >{event.date}</p>
                       </div>
-                      <div className='flex-col items-start'>
-                        <div className='items-start pt-1 pl-3 text-lg font-medium' id='etitle'>
+                      <div className='flex-col flex items-start'>
+                        <div className='items-start flex-1 pt-3 pl-3 text-lg font-medium' id='etitle'>
                           <p>{event.title}</p>
                         </div>
-                        <div className='items-start pt-2 pl-3 text-sm font-medium text-gray-500 ' id='etext'>
+                        <div className='items-start mb-3 pl-3 flex-2 text-sm font-medium text-gray-500 ' id='etext'>
                           <p>{event.text.length > 24 ? `${event.text.substring(0, 25)}..` : event.text}</p>
                         </div>
                         {/* <Notes date = {date} text={eventText} title= {eventTitle}  /> */}
