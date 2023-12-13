@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Appbar.css';
 import { IoMdHome } from 'react-icons/io';
 import { FaCalendar } from 'react-icons/fa';
 import { Typography } from '@material-tailwind/react';

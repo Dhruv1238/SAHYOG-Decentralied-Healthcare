@@ -14,6 +14,9 @@ const Home = () => {
 
     useEffect(() => {
         console.log("user in Login.js", user);
+        setTimeout(() => {
+            navigate("/login");
+        }, 5000); 
     }, [user]);
     const navigate = useNavigate()
     return (
@@ -23,12 +26,6 @@ const Home = () => {
             </div>
             <div>
                 <Typography color='white' style={backBlur} className='text-xl font-bold text-blue-500 font-inter'>"because you matter"</Typography>
-            </div>
-            <div>
-                <CustomButton text="Dive in" click={()=>navigate("/details")} />
-            </div>
-            <div>
-                <CustomButton text="Get immediate help" click={() => navigate("/sos")} />
             </div>
         </div>
     )

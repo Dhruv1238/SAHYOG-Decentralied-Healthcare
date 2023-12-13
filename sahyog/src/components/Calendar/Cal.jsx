@@ -6,7 +6,6 @@ import { Button } from '@material-tailwind/react';
 import { Typography } from '@material-tailwind/react';
 import { motion } from 'framer-motion';
 // import Welcom from './Welcom';
-import Notes from './Notes';
 import { useNavigate } from 'react-router-dom';
 import Appbar from '../appbar/Appbar';
 const Cal = () => {
@@ -51,7 +50,7 @@ const Cal = () => {
   return (
     <>
       {/* <Welcom /> */}
-      <div className='flex flex-col gap-10 m-7'>
+      <div className='flex flex-col pb-20 gap-10 m-7'>
         <motion.div className='flex flex-col gap-2'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

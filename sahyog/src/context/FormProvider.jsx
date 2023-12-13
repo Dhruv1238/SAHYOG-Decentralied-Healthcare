@@ -22,13 +22,13 @@ const FormProvider = ({ children }) => {
                 height: 170,
                 weight: 60,
                 bpl: "",
-                completed: false,
+                completed1: false,
             },
             form2: {
-                completed: false,
+                completed2: false,
             },
             form3: {
-                completed: false,
+                completed3: false,
             },
         };
     });

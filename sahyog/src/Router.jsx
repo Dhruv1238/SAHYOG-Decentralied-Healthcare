@@ -1,7 +1,6 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
-// import Quiz from './pages/Quiz';
 import SOS from './pages/sos/Sos';
 import Profile from './pages/Profile';
 import Chat from './chatbot/Chat';
@@ -15,12 +14,21 @@ import Notes from './components/Calendar/Notes';
 import Landing from './pages/landing/Landing';
 import Specialist from './pages/landing/specialist.jsx/Specialist';
 
-export const Router = () => {
+const Router = () => {
+    const [redirect, setRedirect] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setRedirect(true);
+        }, 5000);
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <Routes>
-            <Route path="/" element={<Login onLoginNavigateTo='/home'/>} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/landing" element={<Landing />} />
+            <Route path="/login" element={<Login onLoginNavigateTo="/details" />} />
             <Route path="/details" element={<DetailsPage />} />
             <Route path="/sos" element={<SOS />} />
             <Route path="/profile" element={<Profile />} />
@@ -31,8 +39,8 @@ export const Router = () => {
             <Route path="/calendar" element={<Cal />} />
             <Route path="/notes/:date/:title/:text" element={<Notes />} />
             <Route path="/landing" element={<Landing />} />
-            <Route path="*" element={<h1>Not Found</h1>} />
-            <Route path="/specialist/:name/:degree" element={<Specialist />} />
         </Routes>
-    )
-}
+    );
+};
+
+export default Router;

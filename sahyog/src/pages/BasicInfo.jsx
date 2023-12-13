@@ -10,18 +10,27 @@ const BasicInfo = () => {
     const { form1, updateFormData } = useFormContext();
     const navigate = useNavigate();
     const [isFormValid, setIsFormValid] = useState(false);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (isFormValid) {
             updateFormData('completed', true);
             navigate('/medicaldetails');
+        } else {
+            updateFormData('completed', false);
         }
+    };
+
+    const validateForm = () => {
+        // Perform your validation logic here
+        const isValid = Object.values(form1).every((value) => value !== '');
+        setIsFormValid(isValid);
+        console.log(isValid);
     };
 
     useEffect(() => {
         console.log(form1);
-        const isFormValid = Object.values(form1).every((value) => value !== '');
-        setIsFormValid(isFormValid);
+        validateForm();
     }, [form1]);
 
     return (

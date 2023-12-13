@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Typography } from '@material-tailwind/react';
+import { Button, Spinner, Typography } from '@material-tailwind/react';
 import { FaUpload, FaFilePdf, FaFileWord } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useFormContext } from '../context/FormProvider';
 import { useNavigate } from 'react-router-dom';
 import { useDropzone } from 'react-dropzone';
 import { TiDelete } from "react-icons/ti";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from '../components/FirebaseSDK';
 
 
 const DropBox = ({ onFilesDrop, onDeleteFile }) => {
@@ -87,12 +89,16 @@ const DropBox = ({ onFilesDrop, onDeleteFile }) => {
 const Medical = () => {
     const { form2, updateFormData } = useFormContext();
     const [hasFiles, setHasFiles] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [files, setFiles] = useState([]);
+    const [urls, setUrls] = useState([]);
     const navigate = useNavigate();
+
 
     const handleDrop = (acceptedFiles) => {
         console.log('Files accepted: ', acceptedFiles);
+        setFiles(acceptedFiles);
         setHasFiles(true);
-        updateFormData('files', acceptedFiles);
         updateFormData('completed', true);
     };
 
@@ -108,46 +114,81 @@ const Medical = () => {
         }
     }, []);
 
+    const handleRecordsSubmit = async () => {
+        setLoading(true);
+        const uploadPromises = files.map(async (file) => {
+            const storageRef = ref(storage, `records/${file.name}`);
+            const snapshot = await uploadBytes(storageRef, file);
+            console.log('Uploaded a blob or file!');
+            try {
+                const url = await getDownloadURL(snapshot.ref);
+                setUrls((prevUrls) => [...prevUrls, url]);
+                console.log(url);
+            } catch (error) {
+                console.error(`Failed to get download URL: ${error}`);
+            }
+        });
+
+        Promise.all(uploadPromises)
+            .then(() => {
+                setLoading(false);
+                // navigate('/healthinsurance');
+            })
+            .catch((error) => {
+                console.error(`Failed to upload some files: ${error}`);
+            });
+    }
+
     return (
-        <div className="flex flex-col gap-24 my-10 mx-7">
-            <motion.div
-                className="flex flex-col gap-2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-            >
-                <Typography color="blue" className="font-inter">
-                    You are almost there!!
-                </Typography>
-                <Typography color="white" className="text-3xl font-bold font-inter">
-                    Please upload your medical details
-                </Typography>
-            </motion.div>
-            <div className="flex flex-col gap-4">
-                <Typography color="white" className="font-bold text-blue-500 text-md font-inter">
-                    Diagnostic Details
-                </Typography>
-                <DropBox onFilesDrop={handleDrop} onDeleteFile={handleDeleteFile} />
-                <div className='flex justify-between'>
-                    <Button
-                        type="submit"
-                        color="blue"
-                        className="text-white"
-                        onClick={() => navigate('/healthinsurance')}
-                        disabled={!hasFiles}
-                    >
-                        Submit
-                    </Button>
-                    <Button
-                        color="blue"
-                        className="text-white"
-                        onClick={() => navigate('/details')}
-                    >
-                        Back
-                    </Button>
+        <>
+            {loading && (
+                <div className="fixed top-0 left-0 z-[99999] w-screen h-screen flex flex-col justify-center items-center backdrop-blur-md bg-black bg-opacity-50">
+                    <Spinner color="blue" className='h-12 w-12' />
+                    <Typography color="white" className=" text-xl">
+                        Uploading...
+                    </Typography>
+                </div>
+            )}
+            <div className="flex flex-col gap-24 my-10 mx-7">
+                <motion.div
+                    className="flex flex-col gap-2"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <Typography color="blue" className="font-inter">
+                        You are almost there!!
+                    </Typography>
+                    <Typography color="white" className="text-3xl font-bold font-inter">
+                        Please upload your medical details
+                    </Typography>
+                </motion.div>
+                <div className="flex flex-col gap-4">
+                    <Typography color="white" className="font-bold text-blue-500 text-md font-inter">
+                        Diagnostic Details
+                    </Typography>
+                    <DropBox onFilesDrop={handleDrop} onDeleteFile={handleDeleteFile} />
+                    <div className='flex justify-between'>
+                        <Button
+                            type="submit"
+                            color="blue"
+                            className="text-white"
+                            onClick={() => handleRecordsSubmit()}
+                            disabled={!hasFiles}
+                        >
+                            Submit
+                        </Button>
+                        <Button
+                            color="blue"
+                            className="text-white"
+                            onClick={() => navigate('/details')}
+                        >
+                            Back
+                        </Button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
