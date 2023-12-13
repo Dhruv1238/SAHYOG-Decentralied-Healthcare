@@ -1,16 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import FormContext from '../context/FormContext';
+import { useFormContext } from '../context/FormProvider';
 import { Button, Typography } from '@material-tailwind/react';
 import { FaUpload } from 'react-icons/fa';
 import { Input, Select, Option } from '@material-tailwind/react';
 import { useNavigate } from 'react-router-dom';
 
 const BasicInfo = () => {
-    const { form1, updateFormData } = useContext(FormContext);
+    const { form1, updateFormData } = useFormContext();
     const navigate = useNavigate();
     const [isFormValid, setIsFormValid] = useState(false);
-
     const handleSubmit = (e) => {
         e.preventDefault();
         if (isFormValid) {
@@ -20,6 +19,7 @@ const BasicInfo = () => {
     };
 
     useEffect(() => {
+        console.log(form1);
         const isFormValid = Object.values(form1).every((value) => value !== '');
         setIsFormValid(isFormValid);
     }, [form1]);

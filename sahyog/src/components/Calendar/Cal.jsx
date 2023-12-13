@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './Cal.css';
+import Welcom from './Welcom';
 
 const Cal = () => {
   const [date, setDate] = useState(new Date());
@@ -39,14 +40,14 @@ const Cal = () => {
       <div id='' className=''>
         <div id='cap' >
 
-          <Calendar className="justify-center align-middle custom_cal" onChange={onChange} value={date} />
+          <Calendar className="custom_cal align-middle justify-center" onChange={onChange} value={date} />
         </div>
         {/* Conditionally render the event input form */}
         {selectedDate && (
           <div className="event-form">
             <label>
               <div className='flex-col items-start'>
-                <p className='pl-4 text-white'>For Event at {selectedDate.toDateString()} :</p>
+                <p className='pl-4 mt-2 text-white'>For Event at {selectedDate.toDateString()} :</p>
                 <div className='flex-col items-start gap-2 mt-5'>
                   <p className='pl-4 text-white'>Title:</p>
                   <input
@@ -73,33 +74,44 @@ const Cal = () => {
         )}
         {/* Display the entered events below the calendar */}
         {events.length > 0 && (
-          <div className="events-list">
-            <h3 className='text-white'>Events:</h3>
+          <div className="events-list items-center">
+            <center>
 
-            <ul className='text-white'>
-              {events.map((event, index) => (
-                <li id='event' key={index}>
-                  <div className='flex text-black bg-white w-80 ' id='td'>
-                    <div className='w-1/4 p-2 bg-cyan-700' id='edate'>
-                      {event.date}
-                    </div>
-                    <div className='flex-col items-start '>
-                      <div className='items-start pt-1 pl-2 text-2xl font-semibold' id='etitle'>
-                        <p>{event.title}</p>
+<div className='w-12 mt-2 mb-2 bg-gray-700 items-center h-1 rounded-full'>
+  </div>
+            </center>
+              
+            <center>
+
+              <ul className='text-white flex-col '>
+                {events.map((event, index) => (
+                  <li id='event' className='pt-4' key={index}>
+                    <div className='bg-white w-80 text-black rounded-lg flex' id='td'>
+                      <div className='bg-cyan-600 text-white p-2 w-1/4' id='edate'>
+                        {event.date}
                       </div>
-                      <div className='items-start pt-2 pb-1 text-sm font-medium ' id='etext'>
-                        <p>{event.text}</p>
+                      <div className='flex-col items-start'>
+                        <div className='pl-3 pt-1 text-lg items-start font-medium' id='etitle'>
+                          <p>{event.title}</p>
+                        </div>
+                        <div className=' pl-3 pt-2 items-start text-gray-500 text-sm font-medium' id='etext'>
+                          <p>{event.text.length > 24 ? `${event.text.substring(0, 25)}..` : event.text}</p>
+                        </div>
+                      </div>
+                      <div>
                       </div>
                     </div>
-                    <div>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+                  </li>
+                ))}
+              </ul>
+            </center>
+
           </div>
+
         )}
+
       </div>
+
     </>
   );
 };

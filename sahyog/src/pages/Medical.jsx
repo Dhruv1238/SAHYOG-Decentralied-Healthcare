@@ -2,10 +2,9 @@ import React, { useEffect } from 'react'
 import { Typography } from '@material-tailwind/react'
 import { FaUpload } from "react-icons/fa";
 import { motion } from 'framer-motion';
-import FormContext from '../context/FormContext';
-import { useContext } from 'react';
+import { useFormContext } from '../context/FormProvider';
 const Medical = () => {
-    const { form1, updateFormData } = useContext(FormContext);
+    const { form1, updateFormData } = useFormContext();
     useEffect(() => {
         console.log(form1);
     })

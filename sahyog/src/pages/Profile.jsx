@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { motion } from 'framer-motion';
-import FormContext from '../context/FormContext';
 import { Typography } from '@material-tailwind/react';
 import { FaUpload } from "react-icons/fa";
 
@@ -9,7 +8,6 @@ import { Input, Select, Label, Option } from '@material-tailwind/react';
 const Profile = () => {
     return (
         <div className='flex flex-col gap-10 my-10 mx-7'>
-
             <motion.div className='flex flex-col gap-2'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
