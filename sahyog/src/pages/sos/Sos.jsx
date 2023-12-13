@@ -2,7 +2,7 @@ import { Typography } from '@material-tailwind/react'
 import React from 'react'
 import sosButtonImage from '../../assets/sos-but.png';
 import Navbar from '../../components/Navbar';
-import './SOS.css'
+import './sos.css'
 import { useState } from 'react';
 
 const SOS = () => {
