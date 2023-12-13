@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './Cal.css';
+import { Button } from '@material-tailwind/react';
+import { Typography } from '@material-tailwind/react';
+import { motion } from 'framer-motion';
 // import Welcom from './Welcom';
 import Notes from './Notes';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Cal = () => {
   const [date, setDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
@@ -47,18 +50,24 @@ const Cal = () => {
   return (
     <>
       {/* <Welcom /> */}
-      <div id='' className=''>
-        <div id='cap' >
-
-          <Calendar className="justify-center align-middle custom_cal" onChange={onChange} value={date} />
+      <div className='flex flex-col gap-10 m-7'>
+        <motion.div className='flex flex-col gap-2'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Typography color='blue' className='font-inter'>Welcome to the Safe Zone!!</Typography>
+          <Typography color='white' className='text-3xl font-bold font-inter'>Write to your Hearts Content</Typography>
+        </motion.div>
+        <div>
+          <Calendar className="" onChange={onChange} value={date} />
         </div>
-        {/* Conditionally render the event input form */}
         {selectedDate && (
           <div className="event-form">
             <label>
-              <div className='flex flex-col items-start'>
+              <div className='flex flex-col items-start gap-4'>
                 <p className='flex-1 mt-2 text-white'>For Event at {selectedDate.toDateString()} :</p>
-                <div className='flex flex-col items-start gap-2 mt-5 text-white'>
+                <div className='flex flex-col items-start gap-4 mt-5 text-white'>
                   <p className='items-start flex-1 '>Title:</p>
                   <textarea
                     className='h-12px w-72 bg-transparent border border-gray-600 outline-none flex-2 text-sm p-1.5 pl-2 rounded-md'
@@ -77,26 +86,21 @@ const Cal = () => {
                     onChange={(e) => setEventText(e.target.value)}
                   />
                 </div>
-                <button id='butt' className='text-white' onClick={handleEventAdd}>
+                <Button className='text-white' color='blue' onClick={handleEventAdd}>
                   Add
-                </button>
+                </Button>
               </div>
             </label>
           </div>
         )}
-        
         {events?.length > 0 && (
           <div className="items-center events-list">
             <center>
-
               <div className='items-center w-12 h-1 mt-2 mb-2 bg-gray-700 rounded-full'>
               </div>
             </center>
-
             <center>
-
               <ul className='flex-col text-white '>
-                
                 {events.map((event, index) => (
                   <li id='event' className='pt-4' key={index}>
                     <div className='flex text-black bg-white rounded-lg w-80' id='td' onClick={() => navigate(`/notes/${event.date}/${event.title}/${event.text}`)}>
@@ -112,19 +116,13 @@ const Cal = () => {
                         </div>
                         {/* <Notes date = {date} text={eventText} title= {eventTitle}  /> */}
                       </div>
-
-                      <div>
-                      </div>
                     </div>
                   </li>
                 ))}
               </ul>
             </center>
-
           </div>
-
         )}
-
       </div>
     </>
   );
