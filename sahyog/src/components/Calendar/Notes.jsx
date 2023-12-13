@@ -45,7 +45,7 @@ const Notes = () => {
           <div className="mt-2 flex-3">
             <textarea onChange={(e) => setEventTitle(e.target.value)} className='h-10 text-3xl font-semibold bg-transparent outline-none w-80'>{title}</textarea>
           </div>
-          <textarea onChange={(e) => setEventText(e.target.value)} className='items-start text-sm text-left bg-transparent outline-none flex-4 w-72 h-52 '>{text}</textarea>
+          <textarea onChange={(e) => setEventText(e.target.value)} className='items-start text-sm text-left bg-transparent outline-none flex-4 w-72 h-screen '>{text}</textarea>
         </div>
       </div>
       <Appbar />
