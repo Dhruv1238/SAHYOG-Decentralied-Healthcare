@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 // import Quiz from './pages/Quiz';
-// import SOS from './pages/SOS';
+import SOS from './pages/sos/SOS';
 import Profile from './pages/Profile';
 import Chat from './chatbot/Chat';
 import DetailsPage from './pages/DetailsPage';
@@ -16,7 +16,7 @@ export const Router = () => {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/details" element={<DetailsPage />} />
-            {/* <Route path="/sos" element={<SOS />} /> */}
+            <Route path="/sos" element={<SOS />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/chatbot" element={<Chat />} />
             <Route path="/basicinfo" element={<BasicInfo />} />
