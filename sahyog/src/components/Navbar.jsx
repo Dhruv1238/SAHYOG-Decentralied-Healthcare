@@ -32,7 +32,7 @@ const Navbar = () => {
         <div className='flex justify-between absolute w-screen'>
             <div className='left flex mt-6 ml-4'>
                 <div className='pfp '>
-                    <img src={user ? user.picture : icon} alt="" className='w-[54px] h-[54px]' />
+                    <img src={user ? user.picture : icon} alt="" className='w-[54px] h-[54px] rounded-full' />
                 </div>
                 <div className='text flex flex-col ml-1  '>
                     <Typography color='white' className='font-semibold' variant='h6'>
