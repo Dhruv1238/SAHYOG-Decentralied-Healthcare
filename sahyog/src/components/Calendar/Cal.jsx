@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 // import React, { useState } from 'react';
 // import Calendar from 'react-calendar';
 // import 'react-calendar/dist/Calendar.css';
 // import './Cal.css';
 // import Welcom from './Welcom';
+=======
+import React, { useState } from 'react';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import './Cal.css';
+import Welcom from './Welcom';
+import Notes from './Notes';
+>>>>>>> 653f0367c4a336dbb70b409b355385969fe57b96
 
 // const Cal = () => {
 //   const [date, setDate] = useState(new Date());
@@ -110,10 +119,17 @@
 
 //         )}
 
+<<<<<<< HEAD
 //       </div>
 
 //     </>
 //   );
 // };
+=======
+      </div>
+    </>
+  );
+};
+>>>>>>> 653f0367c4a336dbb70b409b355385969fe57b96
 
 // export default Cal;
