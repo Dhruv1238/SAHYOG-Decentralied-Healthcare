@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
-import { Typography } from '@material-tailwind/react';
-import { FaUpload, FaFilePdf, FaFileWord, FaFileAlt } from 'react-icons/fa';
+import React, { useEffect, useState } from 'react';
+import { Button, Typography } from '@material-tailwind/react';
+import { FaUpload, FaFilePdf, FaFileWord } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useFormContext } from '../context/FormProvider';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDropzone } from 'react-dropzone';
 
 const DropBox = ({ onFilesDrop }) => {
     const [previewImages, setPreviewImages] = useState([]);
+    const [hasFiles, setHasFiles] = useState(false);
 
     const { getRootProps, getInputProps } = useDropzone({
         accept: 'image/*, video/*, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document',
@@ -20,9 +20,10 @@ const DropBox = ({ onFilesDrop }) => {
                 };
             });
             setPreviewImages([...previewImages, ...previewImagesArray]);
+            setHasFiles(true);
             onFilesDrop(acceptedFiles);
         },
-        multiple: true, // Enable multiple file uploads
+        multiple: true, 
     });
 
     const getFileIcon = (fileType) => {
@@ -31,7 +32,6 @@ const DropBox = ({ onFilesDrop }) => {
         } else if (fileType.includes('msword') || fileType.includes('wordprocessingml.document')) {
             return 'word';
         }
-        // Add more file type checks and icons as needed
         return null;
     };
 
@@ -67,13 +67,12 @@ const DropBox = ({ onFilesDrop }) => {
 
 const Medical = () => {
     const { form1, updateFormData } = useFormContext();
-    useEffect(() => {
-        console.log(form1);
-    }, [form1]);
+    const [hasFiles, setHasFiles] = useState(false);
     const navigate = useNavigate();
 
     const handleDrop = (acceptedFiles) => {
         console.log('Files accepted: ', acceptedFiles);
+        setHasFiles(true);
     };
 
     return (
@@ -96,11 +95,18 @@ const Medical = () => {
                     Diagnostic Details
                 </Typography>
                 <DropBox onFilesDrop={handleDrop} />
+                <Button
+                    type="submit"
+                    color="blue"
+                    className="text-white"
+                    onClick={() => navigate('/dashboard')}
+                    disabled={!hasFiles}
+                >
+                    Submit
+                </Button>
             </div>
         </div>
     );
 };
 
 export default Medical;
-
-
