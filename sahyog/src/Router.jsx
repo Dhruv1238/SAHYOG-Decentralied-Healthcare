@@ -12,6 +12,8 @@ import BasicInfo from './pages/BasicInfo';
 import Login from './context/AuthContext';
 import Cal from './components/Calendar/Cal';
 import Notes from './components/Calendar/Notes';
+import Landing from './pages/Landing';
+
 export const Router = () => {
 
     return (
@@ -27,6 +29,7 @@ export const Router = () => {
             <Route path="/healthinsurance" element={<HealthInsur />} />
             <Route path="/calendar" element={<Cal />} />
             <Route path="/notes/:date/:title/:text" element={<Notes />} />
+            <Route path="/landing" element={<Landing />} />
         </Routes>
     )
 }
