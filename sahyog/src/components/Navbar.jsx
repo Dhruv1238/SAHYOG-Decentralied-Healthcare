@@ -36,7 +36,7 @@ const Navbar = () => {
                 </div>
                 <div className='text flex flex-col ml-1  '>
                     <Typography color='white' className='font-semibold' variant='h6'>
-                        Welcome, Manish
+                        Welcome, {user?.name}
                     </Typography>
                     <Typography color='gray' variant='small'>
                         Mumbai, India
