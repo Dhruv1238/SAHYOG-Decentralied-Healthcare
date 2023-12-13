@@ -6,7 +6,6 @@ import { Spinner } from "@material-tailwind/react";
 const Login = ({ onLoginNavigateTo, heading }) => {
     const navigate = useNavigate();
     const auth = useAuth();
-
     useEffect(() => {
         console.log("auth in Login.js", auth);
         if (auth.isLoggedIn) {
@@ -14,27 +13,11 @@ const Login = ({ onLoginNavigateTo, heading }) => {
         }
     }, [auth, navigate, onLoginNavigateTo]);
 
-
     return (
-        <div className="bg min-h-screen">
-            <h1 className="text-center text-3xl p-8 font-black text-color2">
+        <div className="min-h-screen bg">
+            <h1 className="p-8 text-3xl font-black text-center text-color2">
                 {heading}
             </h1>
-            {/* {auth.loading ? (
-                <div className=" min-h-screen min-w-full backdrop:blur-md">
-                    <Spinner />
-                </div>
-            ) : (
-                <div>
-                    <Auth
-                        externalWallet={false}
-                        theme="dark"
-                        onLogin={() => {
-                            navigate(onLoginNavigateTo);
-                        }}
-                    ></Auth>
-                </div>
-            )} */}
             <div>
                     <Auth
                         externalWallet={false}

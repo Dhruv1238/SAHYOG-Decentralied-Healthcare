@@ -10,7 +10,8 @@ import Medical from './pages/Medical';
 import HealthInsur from './pages/HealthInsur';
 import BasicInfo from './pages/BasicInfo';
 import Login from './context/AuthContext';
-// import Cal from './components/Calendar/Cal'; 
+import Cal from './components/Calendar/Cal';
+import Notes from './components/Calendar/Notes';
 export const Router = () => {
 
     return (
@@ -24,7 +25,8 @@ export const Router = () => {
             <Route path="/basicinfo" element={<BasicInfo />} />
             <Route path="/medicaldetails" element={<Medical />} />
             <Route path="/healthinsurance" element={<HealthInsur />} />
-            {/* <Route path="/calendar" element={<Cal />} /> */}
+            <Route path="/calendar" element={<Cal />} />
+            <Route path="/notes/:date/:title/:text" element={<Notes />} />
         </Routes>
     )
 }

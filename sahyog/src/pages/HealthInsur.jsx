@@ -64,10 +64,10 @@ const DropBox = ({ onFilesDrop }) => {
             </div>
         </div>
     );
-};  
+};
 
 const HealthInsur = () => {
-    const { form1, updateFormData } = useFormContext();
+    const { form3, updateFormData } = useFormContext();
     const [hasFiles, setHasFiles] = useState(false);
     const navigate = useNavigate();
 
@@ -85,10 +85,10 @@ const HealthInsur = () => {
                 transition={{ duration: 0.5 }}
             >
                 <Typography color="blue" className="font-inter">
-                    You are almost there!!
+                    Almost Done
                 </Typography>
                 <Typography color="white" className="text-3xl font-bold font-inter">
-                    Please upload your medical details
+                    Please upload your Health Insurance Details
                 </Typography>
             </motion.div>
             <div className="flex flex-col gap-4">
@@ -96,15 +96,25 @@ const HealthInsur = () => {
                     Diagnostic Details
                 </Typography>
                 <DropBox onFilesDrop={handleDrop} />
-                <Button
-                    type="submit"
-                    color="blue"
-                    className="text-white"
-                    onClick={() => navigate('/dashboard')}
-                    disabled={!hasFiles}
-                >
-                    Submit
-                </Button>
+                <div className='flex justify-between'>
+                    <Button
+                        type="submit"
+                        color="blue"
+                        className="text-white"
+                        onClick={() => navigate('/details')}
+                        disabled={!hasFiles}
+                    >
+                        Submit
+                    </Button>
+                    <Button
+                        color="blue"
+                        className="text-white"
+                        onClick={() => navigate('/details')}
+                    >
+                        Back
+                    </Button>
+                </div>
+
             </div>
         </div>
     );

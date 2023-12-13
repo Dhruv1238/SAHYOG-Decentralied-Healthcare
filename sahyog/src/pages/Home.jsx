@@ -4,6 +4,7 @@ import CustomButton from '../components/CustomButton'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useAuth } from '@arcana/auth-react'
+
 const Home = () => {
     const backBlur = {
         filter: "drop-shadow(0px 0px 40px #277CA5)"
