@@ -4,30 +4,30 @@ import sosButtonImage from '../../assets/sos-but.png';
 import Navbar from '../../components/Navbar';
 import './sos.css'
 import { useState } from 'react';
+import Appbar from '../../components/appbar/Appbar';
 
 const SOS = () => {
-    const [click , setClick] = useState(false);
+    const [click, setClick] = useState(false);
     const sosClickHandler = () => {
         setClick(!click);
         console.log('click')
     }
 
-    
+
     return (
         <>
-        <Navbar />
-        <div className='main flex flex-col  justify-center items-center h-screen ' >
-            <div className='sos-button'>
-                
-                <img src={sosButtonImage} alt="Sos-button" className='scale-animation' onClick={sosClickHandler}/>
-                
+            <Navbar />
+            <div className='flex flex-col items-center justify-center h-screen main ' >
+                <div className='sos-button'>
+                    <img src={sosButtonImage} alt="Sos-button" className='scale-animation' onClick={sosClickHandler} />
+                </div>
+                <div className='bot-text'>
+                    <Typography color='gray' >
+                        "Remember we are just 1 click away"
+                    </Typography>
+                </div>
             </div>
-            <div className='bot-text'>
-                <Typography color='gray' >
-                    "Remember we are just 1 click away"
-                </Typography>
-            </div>
-        </div>
+            <Appbar />
         </>
     )
 }

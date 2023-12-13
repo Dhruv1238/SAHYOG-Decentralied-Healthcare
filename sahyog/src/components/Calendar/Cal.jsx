@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 // import Welcom from './Welcom';
 import Notes from './Notes';
 import { useNavigate } from 'react-router-dom';
+import Appbar from '../appbar/Appbar';
 const Cal = () => {
   const [date, setDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
@@ -56,7 +57,7 @@ const Cal = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Typography color='blue' className='font-inter text-xl font-medium'>Welcome to the Safe Zone!!</Typography>
+          <Typography color='blue' className='text-xl font-medium font-inter'>Welcome to the Safe Zone!!</Typography>
           <Typography color='white' className='text-3xl font-bold font-inter'>Write to your Hearts Content</Typography>
         </motion.div>
         <div>
@@ -105,13 +106,13 @@ const Cal = () => {
                   <li id='event' className='pt-4' key={index}>
                     <div className='flex text-black bg-white rounded-lg w-80' id='td' onClick={() => navigate(`/notes/${event.date}/${event.title}/${event.text}`)}>
                       <div className='w-1/4 p-2 text-white bg-cyan-600' id='edate'>
-                        <p className='font-normal pt-1' >{event.date}</p>
+                        <p className='pt-1 font-normal' >{event.date}</p>
                       </div>
-                      <div className='flex-col flex items-start'>
+                      <div className='flex flex-col items-start'>
                         <div className='items-start flex-1 pt-3 pl-3 text-lg font-medium' id='etitle'>
                           <p>{event.title}</p>
                         </div>
-                        <div className='items-start mb-3 pl-3 flex-2 text-sm font-medium text-gray-500 ' id='etext'>
+                        <div className='items-start pl-3 mb-3 text-sm font-medium text-gray-500 flex-2 ' id='etext'>
                           <p>{event.text.length > 24 ? `${event.text.substring(0, 25)}..` : event.text}</p>
                         </div>
                         {/* <Notes date = {date} text={eventText} title= {eventTitle}  /> */}
@@ -124,6 +125,7 @@ const Cal = () => {
           </div>
         )}
       </div>
+      <Appbar />
     </>
   );
 };
