@@ -6,7 +6,20 @@ import { FaUpload } from "react-icons/fa";
 
 import { Input, Select, Label, Option } from '@material-tailwind/react';
 
-const Profile = () => {
+const CustomInput = ({ placeholder, value, onChange }) => {
+    return (
+        <Input
+            size="lg"
+            value={value}
+            placeholder={placeholder}
+            onChange={onChange}
+            className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+        />
+    )
+}
+
+const BasicInfo = () => {
+    const { form, setForm } = useContext(FormContext);
     return (
         <div className='flex flex-col gap-10 my-10 mx-7'>
 
@@ -21,11 +34,25 @@ const Profile = () => {
             <form className='flex flex-col gap-10'>
                 <div className='flex flex-col gap-2'>
                     <Typography color='white' className='font-bold text-blue-500 text-md font-inter'>Basic Info</Typography>
-
                     <div className="flex flex-col gap-6 mb-1">
                         <Input
                             size="lg"
                             placeholder="Your Name"
+                            className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                        />
+                        <Input
+                            size="lg"
+                            placeholder="Your Age"
+                            className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                        />
+                        <Input
+                            size="lg"
+                            placeholder="Your Email"
+                            className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                        />
+                        <Input
+                            size="lg"
+                            placeholder="Your Email"
                             className="!border-t-blue-gray-200 focus:!border-t-gray-900"
                         />
                         <Input
@@ -35,15 +62,9 @@ const Profile = () => {
                         />
                     </div>
                 </div>
-                <div className='flex flex-col gap-2'>
-                    <Typography color='white' className='font-bold text-blue-500 text-md font-inter'>Diaganostic Details</Typography>
-                    <div className='h-[150px] rounded-[10px] w-full flex justify-center items-center border-2 border-white'>
-                        <FaUpload className='text-4xl text-white' />
-                    </div>
-                </div>
             </form>
         </div>
     )
-}   
+}
 
-export default Profile
+export default BasicInfo

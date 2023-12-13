@@ -4,14 +4,14 @@ import App from './App.jsx'
 import './index.css'
 import { ThemeProvider } from "@material-tailwind/react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import QuizProvider from './context/QuizProvider.jsx';
+import FormProvider from './context/FormProvider.jsx';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider>
-        <QuizProvider>
+        <FormProvider>
           <App />
-        </QuizProvider>
+        </FormProvider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>

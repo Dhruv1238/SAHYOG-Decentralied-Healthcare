@@ -3,7 +3,7 @@ import { Progress } from "@material-tailwind/react";
 import React, { useEffect } from 'react'
 import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
 import SelectBubble from '../components/SelectBubble'
-import QuizContext from '../context/QuizContext';
+import FormContext from '../context/FormContext';
 import { useContext } from 'react';
 import { formVals } from '../formVals/formVals';
 import { motion } from 'framer-motion';
@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 const Quiz = () => {
     const { step, handleSelect, handleBack, handleNext,
         questions
-    } = useContext(QuizContext);
+    } = useContext(FormContext);
     const totalSteps = Object.keys(formVals).length;
     const progress = ((step + 1) / totalSteps) * 100;
     useEffect(() => {
