@@ -3,23 +3,37 @@ import FormContext from './FormContext';
 
 const FormProvider = ({ children }) => {
     const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        address: '',
-        city: '',
-        bloodgrp: '',
-        height: '',
-        weight: '',
-        bmi: '',
-        bpl: '',
+        form1: {
+            name: "",
+            email: "",
+            age: 25,
+            emergency_phone: "",
+            emergency_phone_name: "",
+            gender: "Male",
+            bloodgrp: "",
+            height: 170,
+            weight: 60,
+            bmi: "",
+            bpl: "",
+            completed: false,
+        },
+        form2: {
+            completed: false,
+        },
+        form3: {
+            completed: false,
+        },
     });
 
-    const updateFormData = (newFormData) => {
-        setFormData((prevFormData) => ({
-            ...prevFormData,
-            ...newFormData,
+    const updateFormData = (fieldName, value) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            form1: {
+                ...prevData.form1,
+                [fieldName]: value,
+            },
         }));
+        console.log(formData);
     };
 
     return (

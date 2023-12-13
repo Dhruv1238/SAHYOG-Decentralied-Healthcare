@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Typography } from '@material-tailwind/react'
 import { FaUpload } from "react-icons/fa";
 import { motion } from 'framer-motion';
-
+import FormContext from '../context/FormContext';
+import { useContext } from 'react';
 const Medical = () => {
+    const { form1, updateFormData } = useContext(FormContext);
+    useEffect(() => {
+        console.log(form1);
+    })
     return (
         <div className='flex flex-col gap-10 my-10 mx-7'>
             <motion.div className='flex flex-col gap-2'

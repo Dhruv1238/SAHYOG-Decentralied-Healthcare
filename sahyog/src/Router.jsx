@@ -2,17 +2,14 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Quiz from './pages/Quiz';
-import SOS from './pages/SOS';
+// import SOS from './pages/SOS';
 import Profile from './pages/Profile';
 import Chat from './chatbot/Chat';
 import DetailsPage from './pages/DetailsPage';
 import Medical from './pages/Medical';
 import HealthInsur from './pages/HealthInsur';
 import BasicInfo from './pages/BasicInfo';
-
-
-
-
+import Cal from './components/Calendar/Cal'; 
 export const Router = () => {
 
     return (
@@ -25,7 +22,8 @@ export const Router = () => {
             <Route path="/basicinfo" element={<BasicInfo />} />
             <Route path="/medicaldetails" element={<Medical />} />
             <Route path="/healthinsurance" element={<HealthInsur />} />
-            
+            <Route path="/calendar" element={<Cal />} />
+            {/* <Route path="/sos" element={<SOS />} /> */}
         </Routes>
     )
 }

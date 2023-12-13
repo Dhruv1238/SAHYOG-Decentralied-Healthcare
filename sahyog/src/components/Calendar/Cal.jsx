@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './Cal.css';
-import Welcom from './Welcom';
 
 const Cal = () => {
   const [date, setDate] = useState(new Date());
@@ -38,10 +37,10 @@ const Cal = () => {
     <>
       {/* <Welcom /> */}
       <div id='' className=''>
-       <div id='cap' >
+        <div id='cap' >
 
-        <Calendar className="custom_cal align-middle justify-center" onChange={onChange} value={date} />
-       </div>
+          <Calendar className="justify-center align-middle custom_cal" onChange={onChange} value={date} />
+        </div>
         {/* Conditionally render the event input form */}
         {selectedDate && (
           <div className="event-form">
@@ -65,9 +64,9 @@ const Cal = () => {
                     onChange={(e) => setEventText(e.target.value)}
                   />
                 </div>
-                  <button id='butt' className='text-white' onClick={handleEventAdd}>
-                    Add
-                  </button>
+                <button id='butt' className='text-white' onClick={handleEventAdd}>
+                  Add
+                </button>
               </div>
             </label>
           </div>
@@ -80,15 +79,15 @@ const Cal = () => {
             <ul className='text-white'>
               {events.map((event, index) => (
                 <li id='event' key={index}>
-                  <div className='bg-white w-80 text-black flex ' id='td'>
-                    <div className='bg-cyan-700 p-2 w-1/4' id='edate'>
+                  <div className='flex text-black bg-white w-80 ' id='td'>
+                    <div className='w-1/4 p-2 bg-cyan-700' id='edate'>
                       {event.date}
                     </div>
                     <div className='flex-col items-start '>
-                      <div className='pl-2 pt-1 text-2xl items-start font-semibold' id='etitle'>
+                      <div className='items-start pt-1 pl-2 text-2xl font-semibold' id='etitle'>
                         <p>{event.title}</p>
                       </div>
-                      <div className=' pt-2 pb-1 text-sm items-start font-medium' id='etext'>
+                      <div className='items-start pt-2 pb-1 text-sm font-medium ' id='etext'>
                         <p>{event.text}</p>
                       </div>
                     </div>
