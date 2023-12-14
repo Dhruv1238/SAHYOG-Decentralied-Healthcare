@@ -22,6 +22,11 @@ const Notes = () => {
   //     </>
   //   )
   // }
+  const handleCopyToClipboard = () => {
+    // Copy to clipboard logic
+    navigator.clipboard.writeText(text); // Change 'text' to the actual content you want to copy
+  };
+
   return (
     <>
     <div className="p-5 flex flex-row text-white">
@@ -30,7 +35,7 @@ const Notes = () => {
       <p className='flex-2 text-md font-normal text-cyan-300'>Calendar</p></button>
       </div>
       <div className="flex-2 flex flex-row gap-2 ">
-        <p className='flex-1 text-cyan-300 cursor-pointer'><CiShare1 /></p>
+        <p onClick={handleCopyToClipboard} className='flex-1 text-cyan-300 cursor-pointer'><CiShare1 /></p>
         <p className='flex-2 text-cyan-300 cursor-pointer'><CiMenuKebab />
  </p>
       </div>
