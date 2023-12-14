@@ -41,7 +41,7 @@ const Router = () => {
             <Route path="/notes/:date/:title/:text" element={<Notes />} />
             <Route path="/landing" element={<Landing />} />
             <Route path="/specialist/:name/:degree" element={<Specialist />} />
-            <Route path="/chatapp" element={<Channel />} />
+            <Route path="/doctorChat" element={<Channel />} />
         </Routes>
     );
 };
