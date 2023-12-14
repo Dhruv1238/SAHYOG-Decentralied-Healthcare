@@ -110,13 +110,43 @@ export const InteractionProvider = ({ children }) => {
         }
     };
 
+    const stopSharingData = async () => {
+        setLoading(true)
+        try {
+            const transaction = await contract.stopSharingData();
+            const receipt = await transaction.wait();
+            console.log(receipt.transactionHash);
+            setLoading(false)
+            navigate('/profile')
+        }
+        catch (err) {
+            console.log(err);
+            alert(err);
+        }
+    };
+
+    const startSharingData = async () => {
+        setLoading(true)
+        try {
+            const transaction = await contract.startSharingData();
+            const receipt = await transaction.wait();
+            console.log(receipt.transactionHash);
+            setLoading(false)
+            navigate('/profile')
+        }
+        catch (err) {
+            console.log(err);
+            alert(err);
+        }
+    };
+
     useEffect(() => {
         getUserDetails(userAddress);
     }, [userAddress]);
 
 
     return (
-        <Interaction.Provider value={{ storeUserDetails, loading, storeMedicalDetails, storeInsuranceDetails, userData, userDetails }}>
+        <Interaction.Provider value={{ storeUserDetails, loading, storeMedicalDetails, storeInsuranceDetails, userData, userDetails, stopSharingData, startSharingData }}>
             {children}
         </Interaction.Provider>
     );

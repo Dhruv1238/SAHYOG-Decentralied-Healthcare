@@ -5,6 +5,7 @@ import SendMessage from './SendMessage';
 import { useRef } from 'react';
 import { collection, query, onSnapshot, orderBy, limit } from "firebase/firestore";
 import { Typography } from '@material-tailwind/react';
+import Navbar from '../../components/Navbar';
 
 const Channel = () => {
     const scroll = useRef()
@@ -19,8 +20,9 @@ const Channel = () => {
     }, []);
 
     return (
-        <div className='flex flex-col m-5'>
-            <Typography className='text-3xl text-white '>Chat with Shubham Patil</Typography>
+        <div className='flex flex-col bg-color2'>
+            <Navbar />
+            <Typography className='text-3xl font-bold text-black h-16 text-center pt-24'>Shubham Patil</Typography>
             <div className="msgs">
                 {messages.map(({ id, text, sentBy }) => (
                     <div key={id} className={`p-3 msg ${sentBy === 'Patient' ? 'sent' : 'received'}`}>

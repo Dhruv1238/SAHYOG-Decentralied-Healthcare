@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Button, IconButton, Typography } from '@material-tailwind/react';
+import { Button, IconButton, Typography, Spinner } from '@material-tailwind/react';
 import { FaUpload } from 'react-icons/fa';
 
 import { Input, Select, Label, Option } from '@material-tailwind/react';
@@ -36,19 +36,23 @@ const ProfileData = ({ label, content, isEditable, onChange }) => {
 };
 
 const Profile = () => {
-    const initialProfileData = {
-        name: 'Aarya Tiwari',
-        email: 'aarya.tiwari@somaiya.edu',
-        age: '20',
-        contact: '9876543210',
-        emergencyContact: 'Dhruv Sharma',
-    };
+
 
     const { user } = useAuth();
 
     console.log(user.address);
 
-    const { userData, userDetails } = useContext(Interaction);
+    const { userData, userDetails, stopSharingData, startSharingData, loading } = useContext(Interaction);
+    const [age, gender, name, phoneNumber] = userDetails || [];
+
+    const initialProfileData = {
+        name: name,
+        email: user.email,
+        age: age && age.toNumber(),
+        contact: phoneNumber,
+        emergencyContact: 'Neil Carnac',
+    };
+
 
     const [profileData, setProfileData] = useState(initialProfileData);
     const [isEditable, setIsEditable] = useState(false);
@@ -68,10 +72,16 @@ const Profile = () => {
         console.log(userData);
     }, [])
 
-    const [age, gender, name, phoneNumber] = userDetails || [];
 
     return (
-        <>
+        <> {loading && (
+            <div className="fixed top-0 left-0 z-[99999] w-screen h-screen flex flex-col justify-center items-center backdrop-blur-md bg-black bg-opacity-50">
+                <Spinner color="blue" className='h-12 w-12' />
+                <Typography color="white" className=" text-xl">
+                    Uploading...
+                </Typography>
+            </div>
+        )}
             <div className='flex flex-col gap-10 my-10 mx-7'>
                 <motion.div
                     className='flex flex-col gap-2'
@@ -124,18 +134,21 @@ const Profile = () => {
                     <Button onClick={handleClick} color='blue' className='text-md'>
                         {isEditable ? 'Save Changes' : 'Edit Profile'}
                     </Button>
-                    <p className=' text-white'>
-                        Age: {age && age.toNumber()}
-                        Gender: {gender}
-                        Name: {name}
-                        Phone Number: {phoneNumber}
-                    </p>
+                    <div className='grid grid-cols-2 gap-5 '>
+                        <Button size='sm' color='blue' className='text-md' onClick={() => stopSharingData()}>
+                            Reoke Access
+                        </Button>
+                        <Button size='sm' color='blue' className='text-md' onClick={() => startSharingData()}>
+                            Allow Access
+                        </Button>
+                    </div>
                     <p className='text-white grid grid-cols-3 gap-28 self-center min-h-[34rem]'>
-                        {userData.map((url) => (
+                        {/* {userData[0] === 'This user is not sharing their Medical Records' ? "Please Allow access to view files here" : "Please Allow access to view records here"} */}
+                        {userData ? userData?.map((url) => (
                             <IconButton variant='text' className='flex justify-center items-center' onClick={() => window.open(url, "_blank")}>
                                 <MdDocumentScanner className=' text-color2 w-20 h-20' />
                             </IconButton>
-                        ))}
+                        )) : null}
                     </p>
                 </div>
             </div>
