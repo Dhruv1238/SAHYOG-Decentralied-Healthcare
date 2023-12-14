@@ -29,22 +29,22 @@ const Navbar = () => {
     // }, [user]);
 
     return (
-        <div className='flex justify-between absolute w-screen'>
-            <div className='left flex mt-6 ml-4'>
+        <div className='flex justify-between fixed w-screen top-0 backdrop-blur-lg  '>
+            <div className='left flex mt-6 ml-4 mb-3 '>
                 <div className='pfp '>
-                    <img src={user ? user.picture : icon} alt="" className='w-[54px] h-[54px] rounded-full' />
+                    <img src={user ? user.picture : icon} alt="" className='w-[46px] h-[46px] rounded-full' />
                 </div>
                 <div className='text flex flex-col ml-1  '>
                     <Typography color='white' className='font-semibold' variant='h6'>
                         Welcome, Manish
                     </Typography>
-                    <Typography color='gray' variant='small'>
+                    <Typography color='white' variant='small' className='font-'>
                         Mumbai, India
                     </Typography>
 
                 </div>
             </div>
-            <div className='right flex mt-8 gap-3 mr-4'>
+            <div className='right flex mt-8 gap-3 mr-8'>
                 <CiBellOn onClick={clickHandler} color='white' className='w-[28px] h-[28px]' />
                 <CiMenuBurger color='white' className='w-[28px] h-[28px]' />
             </div>

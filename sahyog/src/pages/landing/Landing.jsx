@@ -33,7 +33,7 @@ const Landing = () => {
     
     
     const clickhandler = (name, degree, photoSrc) => {
-            navigate(`/specialist/${name}/${degree}`, { state: { photoSrc } });
+            navigate(`/specialist/${name}/${degree}`);
         };    
 
 

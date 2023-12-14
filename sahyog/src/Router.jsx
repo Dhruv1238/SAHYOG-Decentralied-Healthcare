@@ -39,6 +39,7 @@ const Router = () => {
             <Route path="/calendar" element={<Cal />} />
             <Route path="/notes/:date/:title/:text" element={<Notes />} />
             <Route path="/landing" element={<Landing />} />
+            <Route path="/specialist/:name/:degree" element={<Specialist />} />
         </Routes>
     );
 };
