@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Button } from '@material-tailwind/react'
+import { Input, Button, IconButton } from '@material-tailwind/react'
 import { useState } from 'react'
 import { db } from '../../components/FirebaseSDK'
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
@@ -7,6 +7,8 @@ import './Chat.css'
 import { useEffect } from 'react';
 import { useRef } from 'react';
 import Appbar from '../../components/appbar/Appbar'
+import { IoSend } from "react-icons/io5";
+
 // import firebase from 'firebase'
 const SendMessage = ({ scroll }) => {
     const [msg, setMsg] = useState('')
@@ -49,17 +51,19 @@ const SendMessage = ({ scroll }) => {
             <Appbar />
             <div className='fixed bottom-0 left-0 right-0 mb-20'>
                 <form onSubmit={handleSendMessage}>
-                    <div className='flex'>
+                    <div className='flex px-5 mb-2'>
                         <Input
-                            className='text-white border-2 border-white outline-none'
+                            // className='text-black border-2 border-black'
+                            color='black'
                             placeholder='Message...'
                             type='text'
                             value={msg}
                             onChange={(e) => setMsg(e.target.value)}
+                            label='Message...'
                         />
-                        <Button className='text-center bg-blue-500 border-2 border-white outline-none' type='submit'>
-                            Send
-                        </Button>
+                        <IconButton variant='text' className='text-center' type='submit'>
+                            <IoSend className='h-5 w-5' />
+                        </IconButton>
                     </div>
                 </form>
             </div>

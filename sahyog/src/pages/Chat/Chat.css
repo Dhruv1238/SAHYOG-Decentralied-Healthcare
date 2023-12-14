@@ -25,19 +25,19 @@ p {
 }
 
 .sent {
-  background-color: #395dff;
+  background-color: #1BA3F0;
   color: white;
-  border-top-right-radius: 0;
+  border-top-right-radius: 15px;
   border-top-left-radius: 15px;
   padding: 20px;
   margin-left: auto;
 }
 
 .received {
-  background-color: #ff0000;
+  background-color: #0676B5;
   color: white;
   border-top-right-radius: 15px;
-  border-top-left-radius: 0;
+  border-top-left-radius: 15px;
   padding: 20px;
   margin-right: auto;
 }

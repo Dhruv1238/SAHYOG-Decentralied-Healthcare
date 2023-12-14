@@ -19,8 +19,8 @@ const Channel = () => {
     }, []);
 
     return (
-        <div className='flex flex-col m-5'>
-            <Typography className='text-3xl text-white '>Chat with Shubham Patil</Typography>
+        <div className='flex flex-col bg-color2'>
+            <Typography className='text-3xl font-bold text-black bg-white h-16 text-center pt-5'>Shubham Patil</Typography>
             <div className="msgs">
                 {messages.map(({ id, text, sentBy }) => (
                     <div key={id} className={`p-3 msg ${sentBy === 'Patient' ? 'sent' : 'received'}`}>
