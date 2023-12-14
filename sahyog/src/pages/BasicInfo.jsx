@@ -5,6 +5,8 @@ import { Button, Typography } from '@material-tailwind/react';
 import { FaUpload } from 'react-icons/fa';
 import { Input, Select, Option } from '@material-tailwind/react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@arcana/auth-react';
+
 
 const BasicInfo = () => {
     const { form1, updateFormData } = useFormContext();
@@ -28,10 +30,28 @@ const BasicInfo = () => {
         console.log(isValid);
     };
 
+
+
+    const { user } = useAuth();
+
+    const [userName, setUserName] = useState(user?.name);
+    const [userEmail, setUserEmail] = useState(user?.email);
+
+
+    useEffect(() => {
+        updateFormData('name', userName);
+        updateFormData('email', userEmail);
+        validateForm();
+    }, [userName, userEmail]);
+
     useEffect(() => {
         console.log(form1);
         validateForm();
     }, [form1]);
+
+    const onSubmit = () => {
+        console.log("onSubmit");
+    };
 
     return (
         <div className='flex flex-col gap-10 my-10 mx-7'>
@@ -55,8 +75,8 @@ const BasicInfo = () => {
                     </Typography>
                     <div className='flex flex-col gap-6 mb-1'>
                         <Input
-                            value={form1.name}
-                            onChange={(e) => updateFormData('name', e.target.value)}
+                            value={userName}
+                            onChange={(e) => setUserName(e.target.value)}
                             size='lg'
                             placeholder='Your Name'
                             className='!border-t-blue-gray-200 focus:!border-t-gray-900 text-white'
@@ -94,12 +114,12 @@ const BasicInfo = () => {
                         />
                         <Input
                             size='lg'
-                            value={form1.email}
-                            onChange={(e) => updateFormData('email', e.target.value)}
+                            value={userEmail}
+                            onChange={(e) => setUserEmail(e.target.value)}
                             placeholder='Your Email'
                             className='!border-t-blue-gray-200 focus:!border-t-gray-900 text-white'
                         />
-                        <Select label='Blood Group' className='text-white color-white'>
+                        {/* <Select label='Blood Group' className='text-white color-white'>
                             <Option onClick={() => form1.bloodgrp = "A+"} value='A+'>A+</Option>
                             <Option onClick={() => form1.bloodgrp = "A-"} value='A-'>A-</Option>
                             <Option onClick={() => form1.bloodgrp = "B+"} value='B+'>B+</Option>
@@ -132,9 +152,9 @@ const BasicInfo = () => {
                             value={form1.bpl}
                             placeholder='BPL Services if any'
                             className='!border-t-blue-gray-200 focus:!border-t-gray-900 text-white'
-                        />
+                        /> */}
                         <div className='flex justify-between'>
-                            <Button type='submit' size='lg' color='blue' className='white' disabled={!isFormValid}>
+                            <Button onClick={()=>onSubmit()} size='lg' color='blue' className='white' disabled={!isFormValid}>
                                 Submit
                             </Button>
                             <Button onClick={() => navigate('/details')} type='button' size='lg' color='blue' className='white'>
