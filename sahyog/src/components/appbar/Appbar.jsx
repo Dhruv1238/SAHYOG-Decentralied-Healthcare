@@ -14,14 +14,14 @@ import { useLocation } from 'react-router-dom';
 const Appbar = () => {
   const [selectedItem, setSelectedItem] = useState('home');
   const location = useLocation();
-  
+
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
   };
 
   const getItemStyles = (item) => {
-    return location.pathname === `/${item}` ? { color: '#002434' } : {color: 'white'};
+    return location.pathname === `/${item}` ? { color: '#002434' } : { color: 'white' };
   };
 
   return (
@@ -34,20 +34,20 @@ const Appbar = () => {
           >
             {/* <GoHomeFill /> */}
 
-          <GoHomeFill
-            className='color-[#002434] w-6 h-6'
-            style={getItemStyles('home')}
-          />
-          <Typography
-            color='white'
-            variant='small'
-            style={getItemStyles('home')}
-          >
-            Home
-          </Typography>
-        </div>
-          </Link>
-        
+            <GoHomeFill
+              className='color-[#002434] w-6 h-6'
+              style={getItemStyles('landing')}
+            />
+            <Typography
+              color='white'
+              variant='small'
+              style={getItemStyles('landing')}
+            >
+              Home
+            </Typography>
+          </div>
+        </Link>
+
         <Link to='/calendar'>
           <div
             className='flex flex-col items-center home'

@@ -101,7 +101,7 @@ const HealthInsur = () => {
                         type="submit"
                         color="blue"
                         className="text-white"
-                        onClick={() => navigate('/details')}
+                        onClick={() => navigate('/landing')}
                         disabled={!hasFiles}
                     >
                         Submit

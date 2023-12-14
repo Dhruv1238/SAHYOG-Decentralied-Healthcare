@@ -13,6 +13,7 @@ import Cal from './components/Calendar/Cal';
 import Notes from './components/Calendar/Notes';
 import Landing from './pages/landing/Landing';
 import Specialist from './pages/landing/specialist.jsx/Specialist';
+import MobileBot from './chatbot/MobileBot/MobileBot'
 
 const Router = () => {
     const [redirect, setRedirect] = useState(false);
@@ -32,7 +33,7 @@ const Router = () => {
             <Route path="/details" element={<DetailsPage />} />
             <Route path="/sos" element={<SOS />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/chatbot" element={<Chat />} />
+            <Route path="/spaces" element={<MobileBot />} />
             <Route path="/basicinfo" element={<BasicInfo />} />
             <Route path="/medicaldetails" element={<Medical />} />
             <Route path="/healthinsurance" element={<HealthInsur />} />

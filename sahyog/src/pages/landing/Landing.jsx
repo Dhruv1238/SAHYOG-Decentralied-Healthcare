@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import banner from '../../assets/landing_banner.png';
 import portrait from '../../assets/portrait.jpg';
 import Appbar from '../../components/appbar/Appbar';
+import Navbar from '../../components/Navbar';
 
 const PersonCard = ({ photoSrc, name, degree, clickFunc }) => {
     return (
@@ -30,21 +31,17 @@ const Landing = () => {
 
     // const navigate = useNavigate();
     const navigate = useNavigate();
-    
-    
     const clickhandler = (name, degree, photoSrc) => {
-            navigate(`/specialist/${name}/${degree}`);
+            navigate(`/specialist/${name}/${degree}`, { state: { photoSrc } });
         };    
 
-
-  
-
     return (
-        <>
+        <div className='flex flex-col'>
+            <Navbar />
             <div className='flex flex-col gap-16 my-20 mx-7'>
                 <div className='flex flex-col gap-5'>
                     <div className='flex items-center justify-between'>
-                        <div className='flex items-center gap-4'>
+                        {/* <div className='flex items-center gap-4'>
                             <FaUserCircle color='lightblue' fontSize={50} />
                             <div className='flex flex-col'>
                                 <Typography color='white' className='text-2xl font-bold font-inter'>
@@ -54,13 +51,13 @@ const Landing = () => {
                                     Welcome to the Safe Zone!!
                                 </Typography>
                             </div>
-                        </div>
-                        <div className='relative'>
+                        </div> */}
+                        {/* <div className='relative'>
                             <CiBellOn color='lightblue' fontSize={35} />
                             <div className='absolute flex items-center justify-center w-2 h-2 bg-red-500 rounded-full top-1 right-2' />
-                        </div>
+                        </div> */}
                     </div>
-                    <div className='relative flex items-center'>
+                    {/* <div className='relative flex items-center'>
                         <FaSearch color='white' fontSize={25} className='absolute left-3' />
                         <Input
                             type='text'
@@ -70,7 +67,7 @@ const Landing = () => {
                             placeholder='Search for anything you want'
                             className='pl-16 text-white'
                         />
-                    </div>
+                    </div> */}
                 </div>
                 <div className='flex flex-col gap-5'>
                     <Typography color='white' className='text-3xl font-bold font-inter'>For You</Typography>
@@ -101,16 +98,16 @@ const Landing = () => {
                 <div className='flex flex-col gap-5'>
                     <Typography color='white' className='text-3xl font-bold font-inter'>Talk to a Specialist</Typography>
                     <div className='flex items-center gap-5 jusitfy-center'>
-                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc = {clickhandler} />
-                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc = {clickhandler}/>
-                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc = {clickhandler}/>
-                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc = {clickhandler}/>
+                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc={clickhandler} />
+                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc={clickhandler} />
+                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc={clickhandler} />
+                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc={clickhandler} />
                     </div>
                     <div className='flex items-center gap-5 jusitfy-center'>
-                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc = {clickhandler}/>
-                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc = {clickhandler}/>
-                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc = {clickhandler}/>
-                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc = {clickhandler}/>
+                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc={clickhandler} />
+                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc={clickhandler} />
+                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc={clickhandler} />
+                        <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc={clickhandler} />
                     </div>
                 </div>
                 <div className='flex flex-col'>
@@ -118,7 +115,7 @@ const Landing = () => {
                 </div>
             </div>
             <Appbar />
-        </>
+        </div>
     );
 };
 
