@@ -25,8 +25,8 @@ const Appbar = () => {
   };
 
   return (
-    <div className='flex w-screen h-[70px] bg-[#20ABE9] rounded-t-3xl justify-center items-center gap-2 fixed bottom-0'>
-      <div className='flex gap-8 left '>
+    <div className='flex w-screen h-[70px] bg-[#20ABE9] rounded-t-3xl justify-center items-center gap-2 fixed bottom-0 left-0'>
+      <div className='flex gap-8'>
         <Link to='/landing' >
           <div
             className='flex flex-col items-center home'

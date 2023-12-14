@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import SOS from './pages/sos/Sos';
 import Profile from './pages/Profile';
-import Chat from './chatbot/Chat';
 import DetailsPage from './pages/DetailsPage';
 import Medical from './pages/Medical';
 import HealthInsur from './pages/HealthInsur';
@@ -14,6 +13,7 @@ import Notes from './components/Calendar/Notes';
 import Landing from './pages/landing/Landing';
 import Specialist from './pages/landing/specialist/Specialist';
 import MobileBot from './chatbot/MobileBot/MobileBot'
+import Channel from './pages/Chat/Channel';
 
 const Router = () => {
     const [redirect, setRedirect] = useState(false);
@@ -21,7 +21,7 @@ const Router = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setRedirect(true);
-        }, 5000);
+        }, 3000);
         return () => clearTimeout(timer);
     }, []);
 
@@ -41,6 +41,7 @@ const Router = () => {
             <Route path="/notes/:date/:title/:text" element={<Notes />} />
             <Route path="/landing" element={<Landing />} />
             <Route path="/specialist/:name/:degree" element={<Specialist />} />
+            <Route path="/doctorChat" element={<Channel />} />
         </Routes>
     );
 };
