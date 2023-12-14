@@ -6,7 +6,7 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import './Chat.css'
 import { useEffect } from 'react';
 import { useRef } from 'react';
-import Appbar from '../../components/Appbar/Appbar'
+import Appbar from '../../components/appbar/Appbar'
 // import firebase from 'firebase'
 const SendMessage = ({ scroll }) => {
     const [msg, setMsg] = useState('')
