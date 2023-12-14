@@ -88,14 +88,14 @@ const Specialist = () => {
                 </Typography>   
             </div>
             <div className='w-full' >
-                <div className='flex justify- gap-5 mt-5 mb-24' >
-                    <Button className='bg-[#277CA5] w-screen ' size='md'>
+                <div className='flex justify-center gap-3 mt-5 mb-28 mr-5'  >
+                    <Button className=' px-16 py-4 ' size='sm' color='blue'>
                         <Link to='/chat'>Chat</Link>
                     </Button>
-                    <Button className=' w-screen' variant='outlined' size='md'>
+                    <Button className=' py-' variant='outlined' size='sm'>
                         <Link to='/calendar' >
-                            <div className='text-[#41A6EF]'>
-                                 Book an Appointmen
+                            <div className='text-[#65ADE1]'>
+                                 Book an Appointment
                             </div>
                         </Link>
                     </Button>
