@@ -5,8 +5,8 @@ const ChatHeader = ({ channel, user, onBack }) => (
     <button onClick={onBack}>
       <img width={20} heigth={20} src={IconArrowLeft} alt="Back button" />
     </button>
-    <span>{channel.name}</span>
-    <span>{user.nickname}</span>
+    <span>Sahyog</span>
+    <span>Sahyog</span>
   </div>
 );
 

@@ -11,7 +11,7 @@ import SahyogCard from '../components/Sahyogcard/SahyogCard';
 const DetailButton = ({ text, onClick }) => {
     const { form1, updateFormData } = useFormContext();
     return (
-        <Button variant="outlined" color='white' className={`flex items-center justify-between rounded-[20px] w-full gap-3 text-md font-bold ${form1.completed1 === false ? "bg-green-500" : "bg-blue-500"} font-inter`} onClick={onClick}>
+        <Button variant="outlined" color='white' className= "bg-blue-500 font-inter" onClick={onClick}>
             {text}
             <FaChevronRight />
         </Button>

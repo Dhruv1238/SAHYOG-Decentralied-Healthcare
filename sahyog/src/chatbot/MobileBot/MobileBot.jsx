@@ -22,7 +22,7 @@ export default function MobileBot() {
     return (
         <>
             <div className="pb-16 App">
-                <SendBirdProvider userId="1152" appId="25EBD513-9845-404D-9890-F22174F1630C">
+                <SendBirdProvider userId="1152" appId="25EBD513-9845-404D-9890-F22174F1630C" nickname="Sahyog">
                     {channel ? (
                         <Channel
                             channelUrl={channel.url}
