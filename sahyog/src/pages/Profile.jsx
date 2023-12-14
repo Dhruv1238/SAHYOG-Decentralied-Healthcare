@@ -9,6 +9,7 @@ import { Interaction } from '../components/contract/Interaction';
 import { useContext } from 'react';
 import { useAuth } from '@arcana/auth-react';
 import { MdDocumentScanner } from "react-icons/md";
+import SahyogCard from '../components/Sahyogcard/SahyogCard';
 
 
 
@@ -95,7 +96,8 @@ const Profile = () => {
                 </motion.div>
                 <div className='flex flex-col gap-10'>
                     <div className='flex flex-col gap-3'>
-                        <div className='flex flex-col gap-1'>
+                        <SahyogCard address={user.address} name={name} number={phoneNumber} age={age.toNumber()} gender={gender} />
+                        <div className='flex flex-col gap-1 mt-10'>
                             <ProfileData
                                 label='Name'
                                 content={profileData.name}
