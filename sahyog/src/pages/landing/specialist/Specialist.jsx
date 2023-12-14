@@ -16,6 +16,11 @@ const Specialist = () => {
         window.location.href = `tel:${phoneNumber}`;
       };
 
+      const handleOnClick = () => { 
+            const text = "Hi, I want to book an appointment can you please let me know if its possible and also the details."
+            window.open(`https://wa.me/7999250587?text=${encodeURIComponent(text)}`, "_blank");
+      }
+
     return (
         <>
         <Navbar />
@@ -89,15 +94,15 @@ const Specialist = () => {
             </div>
             <div className='w-full' >
                 <div className='flex justify-center gap-3 mt-5 mb-28 mr-5'  >
-                    <Button className=' px-16 py-4 ' size='sm' color='blue'>
-                        <Link to='/chat'>Chat</Link>
+                    <Button className=' px-16 py-4 ' size='sm' color='blue' >
+                        <Link to='/doctorChat'>
+                        Chat
+                        </Link>
                     </Button>
-                    <Button className=' py-' variant='outlined' size='sm'>
-                        <Link to='/calendar' >
-                            <div className='text-[#65ADE1]'>
+                    <Button className='border-2 border-[#65ADE1]' variant='outlined' size='sm' onClick={handleOnClick}>
+                            <div className='text-white'>
                                  Book an Appointment
                             </div>
-                        </Link>
                     </Button>
                 </div>
             </div>

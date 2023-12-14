@@ -12,7 +12,7 @@ import Login from './context/AuthContext';
 import Cal from './components/Calendar/Cal';
 import Notes from './components/Calendar/Notes';
 import Landing from './pages/landing/Landing';
-import Specialist from './pages/landing/specialist.jsx/Specialist';
+import Specialist from './pages/landing/specialist/Specialist';
 import MobileBot from './chatbot/MobileBot/MobileBot'
 
 const Router = () => {
