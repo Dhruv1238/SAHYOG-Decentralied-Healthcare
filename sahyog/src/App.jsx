@@ -3,6 +3,7 @@ import Router from './Router'
 import { BrowserRouter } from 'react-router-dom'
 import { ProvideAuth } from "@arcana/auth-react";
 import { AuthProvider, CHAIN } from "@arcana/auth";
+import { InteractionProvider } from './components/contract/Interaction';
 
 const appID = "xar_test_96ae703cb1c7d6a2ef5238f4a1901f22f153a836";
 
@@ -23,7 +24,9 @@ function App() {
     <>
       <ProvideAuth provider={ArcanaProvider}>
         <BrowserRouter>
-          <Router />
+          <InteractionProvider>
+            <Router />
+          </InteractionProvider>
         </BrowserRouter>
       </ProvideAuth>
     </>
