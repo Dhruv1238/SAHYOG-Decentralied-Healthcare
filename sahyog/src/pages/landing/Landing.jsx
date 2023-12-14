@@ -9,6 +9,8 @@ import bannerLanding from '../../assets/banner-landing.png';
 import Appbar from '../../components/appbar/Appbar';
 import Navbar from '../../components/Navbar';
 import './Landing.css';
+import routinePhoto from "../../assets/routines.png"
+
 
 const PersonCard = ({ photoSrc, name, degree, clickFunc }) => {
     return (
@@ -36,7 +38,7 @@ const Landing = () => {
         <div className='flex flex-col'>
             <Navbar />
             <div className='flex flex-col gap-16 mt-20 mx-7'>
-                <div className='flex flex-col gap-5'/>
+                <div className='flex flex-col gap-5' />
                 <div className='flex flex-col gap-5'>
                     <Typography color='white' className='text-3xl font-bold font-inter'>For You</Typography>
                     <div className='rounded-[20px]' id='banner'>
@@ -57,7 +59,7 @@ const Landing = () => {
                                     <BsStars color='yellow' fontSize={25} />
                                 </div>
                             </div> */}
-                                <img src={bannerLanding} alt='banner' className='scale-125' />
+                            <img src={bannerLanding} alt='banner' className='scale-125' />
 
                         </div>
                     </div>
@@ -77,8 +79,28 @@ const Landing = () => {
                         <PersonCard name='Dr. ABC' degree='MBBS' photoSrc={portrait} clickFunc={clickhandler} />
                     </div>
                 </div>
-                <div className='flex flex-col'>
-                    <Typography color='white' className='text-3xl font-bold font-inter'>Some Routines For You</Typography>
+                <div className='flex flex-col mb-32'>
+                    <div>
+                        <Typography color='white' className='text-3xl font-bold font-inter'>Daily routines</Typography>
+                    </div>
+                    <div>
+                        <img src={routinePhoto} alt='banner' className='scale-' />
+                    </div>
+                </div>
+                <div className='flex flex-col mb-32'>
+                    <div>
+                        <Typography color='white' className='text-3xl font-bold font-inter'>Communities and Resources </Typography>
+                    </div>
+                    <div>
+                        {/* <img src={routinePhoto} alt='banner' className='scale-' /> */}
+                        <iframe
+                            width="358"
+                            height="315"
+                            src="https://www.youtube.com/watch?v=QFbupLSlPLE&pp=ygUNeW9nYSBhbmQgbGlmZQ%3D%3D"
+                            frameborder="2"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
                 </div>
             </div>
             <Appbar />

@@ -9,8 +9,8 @@ import Appbar from '../../components/appbar/Appbar';
 const SOS = () => {
     const [click, setClick] = useState(false);
     const sosClickHandler = () => {
-        setClick(!click);
-        console.log('click')
+        const phoneNumber = '1-800-891-4416'; // Replace with the actual phone number
+        window.location.href = `tel:${phoneNumber}`;
     }
 
 
