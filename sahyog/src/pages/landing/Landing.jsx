@@ -8,10 +8,10 @@ import banner from '../../assets/landing_banner.png';
 import portrait from '../../assets/portrait.jpg';
 import Appbar from '../../components/appbar/Appbar';
 import Navbar from '../../components/Navbar';
+import './Landing.css';
 
 const PersonCard = ({ photoSrc, name, degree, clickFunc }) => {
     return (
-
         <div className="flex flex-col items-center" onClick={() => clickFunc(name, degree, photoSrc)}>
             <div className="w-20 h-20 overflow-hidden border-2 border-blue-100 rounded-full">
                 <img src={photoSrc} alt="Person Photo" className="object-cover w-full h-full" />
@@ -24,54 +24,22 @@ const PersonCard = ({ photoSrc, name, degree, clickFunc }) => {
     );
 };
 
-
-
-
 const Landing = () => {
 
     // const navigate = useNavigate();
     const navigate = useNavigate();
     const clickhandler = (name, degree, photoSrc) => {
-            navigate(`/specialist/${name}/${degree}`, { state: { photoSrc } });
-        };    
+        navigate(`/specialist/${name}/${degree}`, { state: { photoSrc } });
+    };
 
     return (
         <div className='flex flex-col'>
             <Navbar />
             <div className='flex flex-col gap-16 my-20 mx-7'>
-                <div className='flex flex-col gap-5'>
-                    <div className='flex items-center justify-between'>
-                        {/* <div className='flex items-center gap-4'>
-                            <FaUserCircle color='lightblue' fontSize={50} />
-                            <div className='flex flex-col'>
-                                <Typography color='white' className='text-2xl font-bold font-inter'>
-                                    Welcome User
-                                </Typography>
-                                <Typography className='text-gray-700 font-inter text-md'>
-                                    Welcome to the Safe Zone!!
-                                </Typography>
-                            </div>
-                        </div> */}
-                        {/* <div className='relative'>
-                            <CiBellOn color='lightblue' fontSize={35} />
-                            <div className='absolute flex items-center justify-center w-2 h-2 bg-red-500 rounded-full top-1 right-2' />
-                        </div> */}
-                    </div>
-                    {/* <div className='relative flex items-center'>
-                        <FaSearch color='white' fontSize={25} className='absolute left-3' />
-                        <Input
-                            type='text'
-                            color='lightblue'
-                            size='lg'
-                            outline={true}
-                            placeholder='Search for anything you want'
-                            className='pl-16 text-white'
-                        />
-                    </div> */}
-                </div>
+                <div className='flex flex-col gap-5'/>
                 <div className='flex flex-col gap-5'>
                     <Typography color='white' className='text-3xl font-bold font-inter'>For You</Typography>
-                    <div className='w-full h-[170px] rounded-[20px] bg-blue-200'>
+                    <div className='w-full h-[170px] rounded-[20px]' id='banner'>
                         <div className='flex items-center justify-between h-full px-5'>
                             <div className='flex flex-col gap-3 m-1'>
                                 <div>
