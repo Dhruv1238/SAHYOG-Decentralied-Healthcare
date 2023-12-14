@@ -41,8 +41,7 @@ export const InteractionProvider = ({ children }) => {
                 setLoading(false) :
                 alert("Transaction failed please submit the form again");
             setLoading(false);
-            navigate('/medicaldetails')
-                ;
+            navigate('/medicaldetails');
         }
         catch (err) {
             console.log(err);
@@ -65,8 +64,24 @@ export const InteractionProvider = ({ children }) => {
         }
     }
 
+    const storeInsuranceDetails = async (medicalDetails) => {
+        setLoading(true);
+        const transactionHash = await contract.storeUserData(medicalDetails);
+        try {
+            const transaction = await transactionHash.wait();
+            transaction.transactionHash ?
+                setLoading(false) :
+                alert("Transaction failed please submit the form again");
+            setLoading(false);
+            navigate('/landing');
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+
     return (
-        <Interaction.Provider value={{ storeUserDetails, loading, storeMedicalDetails }}>
+        <Interaction.Provider value={{ storeUserDetails, loading, storeMedicalDetails, storeInsuranceDetails }}>
             {children}
         </Interaction.Provider>
     );

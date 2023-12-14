@@ -21,7 +21,7 @@ const Router = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setRedirect(true);
-        }, 5000);
+        }, 3000);
         return () => clearTimeout(timer);
     }, []);
 
