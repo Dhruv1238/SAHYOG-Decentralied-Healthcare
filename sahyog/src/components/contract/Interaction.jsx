@@ -12,6 +12,7 @@ export const InteractionProvider = ({ children }) => {
     const [userAddress, setUserAddress] = useState("");
     const { user, isLoggedIn, connect } = useAuth();
     const [loading, setLoading] = useState(false);
+    const [userData, setUserData] = useState({});
 
     const navigate = useNavigate();
 
@@ -80,8 +81,42 @@ export const InteractionProvider = ({ children }) => {
         }
     }
 
+
+
+    const getUserData = async () => {
+        try {
+            const userDataGet = await contract.getUserRecords(userAddress);
+            console.log(userDataGet);
+            setUserData(userDataGet);
+        }
+        catch (err) {
+            console.log(err.errorArgs);
+        }
+    };
+
+    useEffect(() => {
+        getUserData();
+    }, [userAddress])
+
+    const [userDetails, setUserDetails] = useState(null);
+
+    const getUserDetails = async (userAddress) => {
+        try {
+            const details = await contract.getUserDetails(userAddress);
+            setUserDetails(details);
+            console.log('User details retrieved successfully', details);
+        } catch (error) {
+            console.error('Failed to retrieve user details:', error);
+        }
+    };
+
+    useEffect(() => {
+        getUserDetails(userAddress);
+    }, [userAddress]);
+
+
     return (
-        <Interaction.Provider value={{ storeUserDetails, loading, storeMedicalDetails, storeInsuranceDetails }}>
+        <Interaction.Provider value={{ storeUserDetails, loading, storeMedicalDetails, storeInsuranceDetails, userData, userDetails }}>
             {children}
         </Interaction.Provider>
     );
