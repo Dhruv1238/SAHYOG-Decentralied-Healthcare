@@ -15,7 +15,6 @@ const Appbar = () => {
   const [selectedItem, setSelectedItem] = useState('home');
   const location = useLocation();
 
-
   const handleItemClick = (item) => {
     setSelectedItem(item);
   };
