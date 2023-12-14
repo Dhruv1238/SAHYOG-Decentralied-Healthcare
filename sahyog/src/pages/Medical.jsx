@@ -8,11 +8,14 @@ import { useDropzone } from 'react-dropzone';
 import { TiDelete } from "react-icons/ti";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from '../components/FirebaseSDK';
+import { Interaction } from '../components/contract/Interaction';
+import { useContext } from 'react';
 
 
 const DropBox = ({ onFilesDrop, onDeleteFile }) => {
     const [previewImages, setPreviewImages] = useState([]);
     const [hasFiles, setHasFiles] = useState(false);
+
 
     const handleDeleteFile = (index) => {
         const updatedFiles = [...previewImages];
@@ -89,10 +92,12 @@ const DropBox = ({ onFilesDrop, onDeleteFile }) => {
 const Medical = () => {
     const { form2, updateFormData } = useFormContext();
     const [hasFiles, setHasFiles] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const [loadingfb, setLoadingFB] = useState(false);
     const [files, setFiles] = useState([]);
     const [urls, setUrls] = useState([]);
     const navigate = useNavigate();
+
+    const { storeMedicalDetails, loading } = useContext(Interaction);
 
 
     const handleDrop = (acceptedFiles) => {
@@ -115,7 +120,7 @@ const Medical = () => {
     }, []);
 
     const handleRecordsSubmit = async () => {
-        setLoading(true);
+        setLoadingFB(true);
         const uploadPromises = files.map(async (file) => {
             const storageRef = ref(storage, `records/${file.name}`);
             const snapshot = await uploadBytes(storageRef, file);
@@ -124,6 +129,7 @@ const Medical = () => {
                 const url = await getDownloadURL(snapshot.ref);
                 setUrls((prevUrls) => [...prevUrls, url]);
                 console.log(url);
+                await storeMedicalDetails(url);
             } catch (error) {
                 console.error(`Failed to get download URL: ${error}`);
             }
@@ -131,8 +137,7 @@ const Medical = () => {
 
         Promise.all(uploadPromises)
             .then(() => {
-                setLoading(false);
-                // navigate('/healthinsurance');
+                setLoadingFB(false);
             })
             .catch((error) => {
                 console.error(`Failed to upload some files: ${error}`);
@@ -141,11 +146,19 @@ const Medical = () => {
 
     return (
         <>
-            {loading && (
+            {loadingfb && (
                 <div className="fixed top-0 left-0 z-[99999] w-screen h-screen flex flex-col justify-center items-center backdrop-blur-md bg-black bg-opacity-50">
                     <Spinner color="blue" className='h-12 w-12' />
                     <Typography color="white" className=" text-xl">
                         Uploading...
+                    </Typography>
+                </div>
+            )}
+            {loading && (
+                <div className="fixed top-0 left-0 z-[99999] w-screen h-screen flex flex-col justify-center items-center backdrop-blur-md bg-black bg-opacity-50">
+                    <Spinner color="blue" className='h-12 w-12' />
+                    <Typography color="white" className=" text-xl">
+                        Uploading To BlockChain...
                     </Typography>
                 </div>
             )}

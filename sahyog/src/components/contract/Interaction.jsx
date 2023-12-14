@@ -42,15 +42,31 @@ export const InteractionProvider = ({ children }) => {
                 alert("Transaction failed please submit the form again");
             setLoading(false);
             navigate('/medicaldetails')
-            ;
+                ;
         }
         catch (err) {
             console.log(err);
         }
     };
 
+    const storeMedicalDetails = async (medicalDetails) => {
+        setLoading(true);
+        const transactionHash = await contract.storeUserData(medicalDetails);
+        try {
+            const transaction = await transactionHash.wait();
+            transaction.transactionHash ?
+                setLoading(false) :
+                alert("Transaction failed please submit the form again");
+            setLoading(false);
+            navigate('/healthinsurance');
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+
     return (
-        <Interaction.Provider value={{ storeUserDetails, loading }}>
+        <Interaction.Provider value={{ storeUserDetails, loading, storeMedicalDetails }}>
             {children}
         </Interaction.Provider>
     );
