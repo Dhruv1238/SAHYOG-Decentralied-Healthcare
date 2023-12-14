@@ -33,7 +33,7 @@ const Router = () => {
             <Route path="/details" element={<DetailsPage />} />
             <Route path="/sos" element={<SOS />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/chatbot" element={<MobileBot />} />
+            <Route path="/spaces" element={<MobileBot />} />
             <Route path="/basicinfo" element={<BasicInfo />} />
             <Route path="/medicaldetails" element={<Medical />} />
             <Route path="/healthinsurance" element={<HealthInsur />} />

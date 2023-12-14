@@ -1,4 +1,9 @@
+import { useEffect } from "react";
+
 const ChannelPreview = ({ channel, onChannelSelect }) => {
+  useEffect(() => {
+    console.log(channel);
+  })
   return (
     <div
       className="channel-preview-wrapper"
