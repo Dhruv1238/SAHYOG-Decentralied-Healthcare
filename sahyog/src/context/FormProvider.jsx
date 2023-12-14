@@ -15,6 +15,7 @@ const FormProvider = ({ children }) => {
                 name: "",
                 email: "",
                 age: 25,
+                phone: "",
                 emergency_phone: "",
                 emergency_phone_name: "",
                 gender: "",
