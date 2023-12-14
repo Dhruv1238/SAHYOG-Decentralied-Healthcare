@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import Navbar from '../../../components/Navbar';
 import Appbar from '../../../components/appbar/Appbar';
 import docPhoto from '../../../assets/doctor.png';
+import { Button } from "@material-tailwind/react";
+
 import { Typography } from '@material-tailwind/react';
 
 const Specialist = () => {
@@ -17,7 +19,7 @@ const Specialist = () => {
     return (
         <>
         <Navbar />
-        <div className='flex flex-col mt-[150px] ml-10 h-screen overflow-scroll '>
+        <div className='flex flex-col mt-[100px]  ml-7 h-screen overflow-scroll '>
             <div className='mb-3'>
                 <Typography color='white' className='text-2xl font-bold font-inter mb-[-5px]'>
                     {name}
@@ -84,6 +86,20 @@ const Specialist = () => {
                         <li>Email: abc@abc.com </li>
                     </ul>
                 </Typography>   
+            </div>
+            <div className='w-full' >
+                <div className='flex justify- gap-5 mt-5' >
+                    <Button className='bg-[#277CA5] w-screen ' size='md'>
+                        <Link to='/chat'>Chat</Link>
+                    </Button>
+                    <Button className=' w-screen' variant='outlined' size='md'>
+                        <Link to='/calendar' >
+                            <div className='text-[#41A6EF]'>
+                                 Book an Appointmen
+                            </div>
+                        </Link>
+                    </Button>
+                </div>
             </div>
         </div>
         <Appbar />
