@@ -88,7 +88,7 @@ const Specialist = () => {
                 </Typography>   
             </div>
             <div className='w-full' >
-                <div className='flex justify- gap-5 mt-5' >
+                <div className='flex justify- gap-5 mt-5 mb-24' >
                     <Button className='bg-[#277CA5] w-screen ' size='md'>
                         <Link to='/chat'>Chat</Link>
                     </Button>
