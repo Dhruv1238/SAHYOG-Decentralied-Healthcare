@@ -16,6 +16,10 @@ const ProfileData = ({ label, content }) => {
 }
 
 const Profile = () => {
+
+    const handleClick = () => {
+        console.log('clicked')
+    }
     return (
         <>
             <div className='flex flex-col gap-10 my-10 mx-7'>
@@ -24,19 +28,23 @@ const Profile = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <Typography color='white' className='text-3xl font-bold font-inter'>Profile</Typography>
+                    <Typography color='white' className='text-2xl font-bold font-inter'><u>My Profile</u></Typography>
                 </motion.div>
                 <div className='flex flex-col gap-10'>
-                    <div className='flex flex-col gap-2'>
-                        <div className="flex flex-col gap-6 mb-1">
-                            <ProfileData label='Name' content='Aarya Tiwari' />
-                            <ProfileData label='Email' content="aarya.tiwari@somaiya.edu" />
-                            <ProfileData label='Age' content='20' />
-                            <ProfileData label="Emergency Contact" content='9876543210' />
-                            <ProfileData label="Name of emergency Contact" content='Dhruv Sharma' />
+                    <div className='flex flex-col gap-3'>
+                        <div className="flex flex-col gap-1">
+                            <ProfileData className='flex-1 text-lg font-inter font-light' label='Name' content='Aarya Tiwari' />
+                            <ProfileData className='flex-2 text-lg font-inter font-light' label='Email' content="aarya.tiwari@somaiya.edu" />
                         </div>
+                        <div className="flex flex-col gap-1 mb-1">
+                        <ProfileData className='flex-1 text-lg font-inter font-light' label='Age' content='20' />
+                        <ProfileData className='flex-2 text-lg font-inter font-light' label="Emergency Contact" content='9876543210' />
+                        </div>
+                        
+                        <ProfileData label="Name of emergency Contact" content='Dhruv Sharma' />
+
                     </div>
-                    <Button color='blue' className='text-md'>
+                    <Button onClick={()=> handleClick} color='blue' className='text-md'>
                         Edit Profile
                     </Button>
                 </div>
