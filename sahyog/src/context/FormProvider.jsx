@@ -17,11 +17,7 @@ const FormProvider = ({ children }) => {
                 age: 25,
                 emergency_phone: "",
                 emergency_phone_name: "",
-                gender: "Male",
-                bloodgrp: "",
-                height: 170,
-                weight: 60,
-                bpl: "",
+                gender: "",
                 completed1: false,
             },
             form2: {
