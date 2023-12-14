@@ -169,6 +169,13 @@ const HealthInsur = () => {
                         >
                             Back
                         </Button>
+                        <Button
+                            color="blue"
+                            className="text-white"
+                            onClick={() => navigate('/landing')}
+                        >
+                            Skip
+                        </Button>
                     </div>
 
                 </div>
