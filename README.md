@@ -1,3 +1,8 @@
+To start accessing our application: First authenticate using your google account then access your wallet from bottom right
+Coppy wallet address and paste it here: https://mumbaifaucet.com/
+Now that you have some matic in your wallet you can start storing your files on the blockchain and access a wide variety of features mentioned below.
+
+
 India, despite its robust identity systems, lacks a comprehensive healthcare ecosystem, leading to challenges in accessing timely medical advice, increased health risks, and reduced workforce productivity. This lack of a streamlined healthcare model also impacts India's contribution to the global GDP, as it results in increased healthcare costs and a higher disease burden.
 
 SAHYOG is a revolutionary healthcare ecosystem designed to address these shortcomings. It leverages advanced AI models and blockchain technology to provide a seamless experience for users and doctors. The system introduces the SAHYOG Card, a unique health identity that is decentralized and easily identifiable. It enables users to engage in one-on-one sessions with doctors, ensuring prompt access to medical advice.
