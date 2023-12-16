@@ -30,10 +30,11 @@ Allows users to set and manage daily tasks aligned with health objectives.
 
 ### SOS Button for Emergencies:
 SAHYOG features an SOS button placed conveniently in the bottom navbar, easily accessible and closest to the thumb. Clicking the SOS button initiates a call to the user's emergency contact (loved ones) and a government helpline.
+
 ![App Screenshot](https://firebasestorage.googleapis.com/v0/b/sahyog-1f3e5.appspot.com/o/Screenshot%20from%202023-12-16%2013-36-41.png?alt=media&token=57962839-0819-4c88-819c-8b7dc28d7f04)
 
 ### Blockchain Security:
-SAHYOG employs blockchain security and smart contracts based on Polygon to ensure the privacy and security of user data, addressing concerns related to data breaches and unauthorized access. SOS Button for Emergencies
+SAHYOG employs blockchain security and smart contracts based on Polygon to ensure the privacy and security of user data, addressing concerns related to data breaches and unauthorized access.
 
 
 
