@@ -39,6 +39,7 @@ SAHYOG employs blockchain security and smart contracts based on Polygon to ensur
 
 
 ## Enter a new realm of healthcare:
+(Developed for mobile platform)
 
 https://sahyog-tbd.netlify.app/
 
